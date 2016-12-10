@@ -1,0 +1,59 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myPreferencesLabel" data-translate="21PointsApp.preferences.home.createOrEditLabel">Create or edit a Preferences</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.preferences.id">
+            <label for="id" data-translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.preferences.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="21PointsApp.preferences.weeklyGoal" for="field_weeklyGoal">Weekly Goal</label>
+            <input type="number" class="form-control" name="weeklyGoal" id="field_weeklyGoal"
+                    ng-model="vm.preferences.weeklyGoal"
+                    min="10" max="21" />
+            <div ng-show="editForm.weeklyGoal.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.weeklyGoal.$error.min" data-translate="entity.validation.min" translate-value-min="10">
+                    This field should be more than 10.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.weeklyGoal.$error.max" data-translate="entity.validation.max" translate-value-max="21">
+                    This field cannot be more than 21.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.weeklyGoal.$error.number" data-translate="entity.validation.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" data-translate="21PointsApp.preferences.weightUnits" for="field_weightUnits">Weight Units</label>
+            <select class="form-control" name="weightUnits" ng-model="vm.preferences.weightUnits" id="field_weightUnits">
+                <option value="Kg" data-translate="21PointsApp.WeightUnits.Kg">Kg</option>
+                <option value="Lbs" data-translate="21PointsApp.WeightUnits.Lbs">Lbs</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label data-translate="21PointsApp.preferences.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" ng-model="vm.preferences.user" ng-options="user as user.id for user in vm.users track by user.id">
+                <option value=""></option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span data-translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span data-translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

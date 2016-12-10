@@ -1,0 +1,9 @@
+{
+    "21PointsApp": {
+        "WeightUnits" : {
+            "null": "",
+            "Kg": "Kg",
+            "Lbs": "Lbs"
+        }
+    }
+}
