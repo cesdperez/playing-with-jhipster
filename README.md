@@ -1,3 +1,7 @@
+This application was made following "The jhipster mini-book" by Matt Riable that you can found here https://www.infoq.com/minibooks/jhipster-2-mini-book
+
+I changed and added a few thing for playing around.
+
 # 21points
 
 This application was generated using JHipster 3.12.1, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v3.12.1](https://jhipster.github.io/documentation-archive/v3.12.1).
