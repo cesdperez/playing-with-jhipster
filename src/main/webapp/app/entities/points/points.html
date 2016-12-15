@@ -70,9 +70,18 @@
         <tr ng-repeat="points in vm.points track by points.id">
             <td><a ui-sref="points-detail({id:points.id})">{{points.id}}</a></td>
             <td>{{points.date | date:'mediumDate'}}</td>
-            <td>{{points.exercise}}</td>
-            <td>{{points.meals}}</td>
-            <td>{{points.alcohol}}</td>
+            <td class="text-center">
+                <i class="glyphicon"
+                   ng-class="{'glyphicon-ok text-success': points.exercise, 'glyphicon-remove text-danger': !points.exercise}"></i>
+            </td>
+            <td class="text-center">
+                <i class="glyphicon"
+                   ng-class="{'glyphicon-ok text-success': points.meals, 'glyphicon-remove text-danger': !points.meals}"></i>
+            </td>
+            <td class="text-center">
+                <i class="glyphicon"
+                   ng-class="{'glyphicon-ok text-success': points.alcohol, 'glyphicon-remove text-danger': !points.alcohol}"></i>
+            </td>
             <td>{{points.notes}}</td>
             <td>
                 {{points.user.id}}
